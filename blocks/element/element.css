@@ -1,0 +1,6 @@
+.element {
+  max-width: 282px;
+  border: solid 5px black;
+  border-radius: 10px;
+  overflow: hidden;
+}

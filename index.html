@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>EUA Afora</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img
+        class="header__logo"
+        src="./images/logo-header.png"
+        alt="Around the world logo"
+      />
+      <img
+        class="header__line"
+        src="./images/line-header.png"
+        alt="Linha decorativa"
+      />
+    </header>
+    <main class="main">
+      <section class="profile">
+        <img
+          class="profile__avatar"
+          src="./images/profile/jacques_cousteau.png"
+          alt="Fotografia do usuario"
+        />
+        <div class="profile__profile-info">
+          <div class="profile__title-container">
+            <h1 class="profile__title" id="name">Jacques Cousteau</h1>
+            <button
+              id="edit_button"
+              type="button"
+              class="profile__edit-button"
+            ></button>
+          </div>
+          <p class="profile__subtitle" id="aboutme">Explorar</p>
+        </div>
+        <button
+          id="add_button"
+          type="button"
+          class="profile__add-button"
+        ></button>
+      </section>
+      <section class="elements">
+        <div class="element">
+          <img
+            class="element__image"
+            src="./images/elements/atlanta.jpg"
+            alt="Imagem aerea do centro de Atlanta-GA"
+          />
+          <div class="element__rectangle">
+            <p class="element__place">Atlanta</p>
+            <img
+              class="element__like"
+              src="./images/elements/curtir.svg"
+              alt="Imagem do botao curtir"
+            />
+          </div>
+        </div>
+
+        <div class="element">
+          <img
+            class="element__image"
+            src="./images/elements/capitol.jpg"
+            alt="Imagem do Capitolio em Washington D.C."
+          />
+          <div class="element__rectangle">
+            <p class="element__place">Capitólio</p>
+            <img
+              class="element__like"
+              src="./images/elements/curtir.svg"
+              alt="Imagem do botao curtir"
+            />
+          </div>
+        </div>
+
+        <div class="element">
+          <img
+            class="element__image"
+            src="./images/elements/dallas.jpg"
+            alt="Imagem noturna e aérea de Dallas TX"
+          />
+          <div class="element__rectangle">
+            <p class="element__place">Dallas</p>
+            <img
+              class="element__like"
+              src="./images/elements/curtir.svg"
+              alt="Imagem do botao curtir"
+            />
+          </div>
+        </div>
+
+        <div class="element">
+          <img
+            class="element__image"
+            src="./images/elements/deerfieldbeach.jpg"
+            alt="Imagem da praia de Deerfield Beach em Pompano Beach-FL"
+          />
+          <div class="element__rectangle">
+            <p class="element__place">Deerfield Beach</p>
+            <img
+              class="element__like"
+              src="./images/elements/curtir.svg"
+              alt="Imagem do botao curtir"
+            />
+          </div>
+        </div>
+
+        <div class="element">
+          <img
+            class="element__image"
+            src="./images/elements/detroit.jpg"
+            alt="Imagem de área residencial de Detroit"
+          />
+          <div class="element__rectangle">
+            <p class="element__place">Detroit</p>
+            <img
+              class="element__like"
+              src="./images/elements/curtir.svg"
+              alt="Imagem do botao curtir"
+            />
+          </div>
+        </div>
+
+        <div class="element">
+          <img
+            class="element__image"
+            src="./images/elements/new_york.jpg"
+            alt="Imagem aerea das pontes de Nova Iorque e Brooklyn"
+          />
+          <div class="element__rectangle">
+            <p class="element__place">Pontes de Nova Iorque</p>
+            <img
+              class="element__like"
+              src="./images/elements/curtir.svg"
+              alt="Imagem do botao curtir"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <img
+        class="footer__image"
+        src="./images/footer/© 2021 Around The U.S..png"
+        alt="Logo 2021 Around the US"
+      />
+    </footer>
+
+    <div class="popup">
+      <div class="popup__container">
+        <button class="popup__closebutton">
+          <img
+            class="popup__closebutton-image"
+            src="./images/popup/CloseIcon.png"
+            alt="Botao de fechar janela"
+          />
+        </button>
+        <h2 class="popup__title">Editar Perfil</h2>
+        <form class="popup__form">
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            class="popup__name"
+            placeholder="Nome"
+          />
+          <input
+            type="text"
+            id="fexplore"
+            name="fexplore"
+            class="popup__explore"
+            placeholder="Sobre mim"
+          />
+          <button type="submit" id="edit-save" class="popup__edit-button">
+            Salvar
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
