@@ -44,7 +44,38 @@
           class="profile__add-button"
         ></button>
       </section>
-      <section class="elements">
+      <div class="popup">
+        <div class="popup__container">
+          <button class="popup__closebutton">
+            <img
+              class="popup__closebutton-image"
+              src="./images/popup/CloseIcon.png"
+              alt="Botao de fechar janela"
+            />
+          </button>
+          <h2 class="popup__title">Editar Perfil</h2>
+          <form class="popup__form">
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              class="popup__name"
+              placeholder="Nome"
+            />
+            <input
+              type="text"
+              id="fexplore"
+              name="fexplore"
+              class="popup__explore"
+              placeholder="Sobre mim"
+            />
+            <button type="submit" id="edit-save" class="popup__edit-button">
+              Salvar
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="elements">
         <div class="element">
           <img
             class="element__image"
@@ -129,10 +160,10 @@
           <img
             class="element__image"
             src="./images/elements/new_york.jpg"
-            alt="Imagem aerea das pontes de Nova Iorque e Brooklyn"
+            alt="Imagem aérea das pontes do Brooklyn e Manhattan"
           />
           <div class="element__rectangle">
-            <p class="element__place">Pontes de Nova Iorque</p>
+            <p class="element__place">Nova Iorque</p>
             <img
               class="element__like"
               src="./images/elements/curtir.svg"
@@ -140,47 +171,16 @@
             />
           </div>
         </div>
-      </section>
+      </div>
     </main>
     <footer class="footer">
       <img
         class="footer__image"
-        src="./images/footer/© 2021 Around The U.S..png"
+        src="./images/footer/copyright.png"
         alt="Logo 2021 Around the US"
       />
     </footer>
 
-    <div class="popup">
-      <div class="popup__container">
-        <button class="popup__closebutton">
-          <img
-            class="popup__closebutton-image"
-            src="./images/popup/CloseIcon.png"
-            alt="Botao de fechar janela"
-          />
-        </button>
-        <h2 class="popup__title">Editar Perfil</h2>
-        <form class="popup__form">
-          <input
-            type="text"
-            id="fname"
-            name="fname"
-            class="popup__name"
-            placeholder="Nome"
-          />
-          <input
-            type="text"
-            id="fexplore"
-            name="fexplore"
-            class="popup__explore"
-            placeholder="Sobre mim"
-          />
-          <button type="submit" id="edit-save" class="popup__edit-button">
-            Salvar
-          </button>
-        </form>
-      </div>
-    </div>
     <script src="./scripts/script.js"></script>
   </body>
 </html>

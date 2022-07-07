@@ -23,11 +23,11 @@ function handleClosePopUp() {
 
 let formElement = document.querySelector(".popup__form");
 
-function handleProfileFormSubmit(evt) {
+function updateProfile(evt) {
   evt.preventDefault();
   profileName.textContent = popupName.value;
   profileAbout.textContent = popupExplore.value;
   handleClosePopUp();
 }
 
-formElement.addEventListener("submit", handleProfileFormSubmit);
+formElement.addEventListener("submit", updateProfile);
