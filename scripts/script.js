@@ -1,12 +1,26 @@
-let page = document.querySelector(".page");
-let editButton = document.querySelector(".profile__edit-button");
-let popupCloseButton = document.querySelector(".popup__closebutton");
-let editPopUp = document.querySelector(".popup");
-let profileName = document.getElementById("name");
-let profileAbout = document.getElementById("aboutme");
-let popupName = document.querySelector(".popup__name");
-let popupExplore = document.querySelector(".popup__explore");
+const page = document.querySelector(".page");
+const editButton = document.querySelector(".profile__edit-button");
+const popupCloseButton = document.querySelector(".popup__closebutton");
+const editPopUp = document.querySelector(".popup");
+const profileName = document.getElementById("name");
+const profileAbout = document.getElementById("aboutme");
+const popupName = document.querySelector(".popup__name");
+const popupExplore = document.querySelector(".popup__explore");
 
+const likeButtons = document.querySelectorAll(".element__like");
+likeButtons.forEach((button) =>
+  button.addEventListener("click", () =>
+    button.classList.toggle("element__like_active")
+  )
+);
+
+/*
+likeButton.addEventListener("click", handleActiveLike);
+
+function handleActiveLike() {
+  likeButton.classList.toggle("element__like_active");
+}
+*/
 editButton.addEventListener("click", handleShowPopUp);
 
 function handleShowPopUp() {

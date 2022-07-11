@@ -8,6 +8,10 @@
   bottom: 99%;
 }
 
+.popup__closebutton:hover {
+  filter: invert(0.5);
+}
+
 @media screen and (max-width: 350px) {
   .popup__closebutton {
     width: 26px;

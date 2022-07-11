@@ -1,0 +1,10 @@
+.element__like_active {
+  height: 19px;
+  width: 19px;
+  filter: none;
+  content: url(../../../../images/elements/curtir_ativo.png);
+}
+
+.element__like_active:hover {
+  filter: none;
+}
