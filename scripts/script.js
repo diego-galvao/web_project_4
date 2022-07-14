@@ -1,3 +1,46 @@
+const initialCards = [
+  {
+    name: "Vale de Yosemite",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+  },
+  {
+    name: "Montanhas Carecas",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
+  },
+  {
+    name: "Parque Nacional da Vanoise ",
+    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg",
+  },
+];
+
+const elements = document.querySelector(".elements");
+
+function createCard(card) {
+  const template = document.querySelector("template").content;
+  const element = template.querySelector(".element").cloneNode(true);
+
+  element.querySelector(".element__image").src = card.link;
+  element.querySelector(".element__place").textContent = card.name;
+
+  elements.append(element);
+}
+
+initialCards.forEach((card) => createCard(card));
+
+//----------------------------------------------------------------------------------
+
 const page = document.querySelector(".page");
 const editButton = document.querySelector(".profile__edit-button");
 const popupCloseButton = document.querySelector(".popup__closebutton");
@@ -14,13 +57,6 @@ likeButtons.forEach((button) =>
   )
 );
 
-/*
-likeButton.addEventListener("click", handleActiveLike);
-
-function handleActiveLike() {
-  likeButton.classList.toggle("element__like_active");
-}
-*/
 editButton.addEventListener("click", handleShowPopUp);
 
 function handleShowPopUp() {
