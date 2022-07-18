@@ -1,0 +1,5 @@
+.popup__img-opened {
+  visibility: visible;
+  opacity: 1;
+  background: rgba(0, 0, 0, 1);
+}

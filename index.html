@@ -48,7 +48,32 @@
           />
         </button>
       </section>
-      <div class="popup">
+      <div class="elements">
+        <template id="template">
+          <div class="element" id="#element">
+            <a class="element__link"
+              ><img class="element__image" id="#element__image"
+            /></a>
+            <img
+              class="element__trash"
+              type="button"
+              id="trash"
+              src="./images/elements/lixeira.png"
+              alt="Icone de lixeira para apagar cartao"
+            />
+            <div class="element__rectangle" id="element__info">
+              <p class="element__place" id="element__place"></p>
+              <img
+                class="element__like"
+                src="./images/elements/curtir.svg"
+                alt="Imagem do botao curtir"
+              />
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="popup" id="edit-popup">
         <div class="popup__container">
           <button class="popup__closebutton">
             <img
@@ -79,25 +104,51 @@
           </form>
         </div>
       </div>
-      <div class="elements">
-        <template id="template">
-          <div class="element" id="#element">
-            <img class="element__image" id="#element__image" />
+
+      <div class="popup" id="add-popup">
+        <div class="popup__container">
+          <button class="popup__closebutton" id="addpopup_closebutton">
             <img
-              class="element__trash"
-              src="./images/elements/lixeira.png"
-              alt="Icone de lixeira para apagar cartao"
+              class="popup__closebutton-image"
+              src="./images/popup/CloseIcon.png"
+              alt="Botao de fechar janela"
             />
-            <div class="element__rectangle" id="element__info">
-              <p class="element__place" id="element__place"></p>
-              <img
-                class="element__like"
-                src="./images/elements/curtir.svg"
-                alt="Imagem do botao curtir"
-              />
-            </div>
-          </div>
-        </template>
+          </button>
+          <h2 class="popup__title">Novo local</h2>
+          <form class="popup__form" id="addpopup_form">
+            <input
+              type="text"
+              id="ftitle"
+              name="ftitle"
+              class="popup__name"
+              placeholder="Título"
+            />
+            <input
+              type="text"
+              id="flink"
+              name="flink"
+              class="popup__explore"
+              placeholder="Link de imagem"
+            />
+            <button type="submit" id="add-save" class="popup__edit-button">
+              Criar
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup" id="modal-image">
+        <div class="popup__imgcontainer">
+          <button class="popup__closebutton" id="imagepopup_closebutton">
+            <img
+              class="popup__closebutton-image"
+              src="./images/popup/CloseIcon.png"
+              alt="Botao de fechar janela"
+            />
+          </button>
+          <img class="popup__image" alt="" />
+          <h2 class="popup__place"></h2>
+        </div>
       </div>
     </main>
     <footer class="footer">
