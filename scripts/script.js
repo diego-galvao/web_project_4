@@ -30,10 +30,11 @@ const initialCards = [
 const elements = document.querySelector(".elements");
 
 function saveCard(card) {
-  const template = document.querySelector("template").content;
+  const template = document.querySelector("#template").content;
   const element = template.querySelector(".element").cloneNode(true);
 
   element.querySelector(".element__image").src = card.link;
+  element.querySelector(".element__image").alt = card.name;
   element.querySelector(".element__place").textContent = card.name;
 
   elements.prepend(element);
@@ -57,6 +58,7 @@ function handleShowImagePopUp(card) {
   const imgPlace = modalImagePopUp.querySelector(".popup__place");
 
   img.src = card.link;
+  img.alt = card.name;
   imgPlace.textContent = card.name;
   modalImagePopUp.classList.add("popup__img-opened");
 }
@@ -103,7 +105,7 @@ const profileAbout = document.getElementById("aboutme");
 const popupName = document.querySelector("#fname");
 const popupExplore = document.querySelector("#fexplore");
 
-let formElement = document.querySelector(".popup__form");
+const formElement = document.querySelector(".popup__form");
 
 function updateProfile(evt) {
   evt.preventDefault();
@@ -137,7 +139,7 @@ function handleCloseAddPopUp() {
 const popupTitle = document.querySelector("#ftitle");
 const popupLink = document.querySelector("#flink");
 
-let addElement = document.querySelector("#addpopup_form");
+const addElement = document.querySelector("#addpopup_form");
 
 function addCard(evt) {
   evt.preventDefault();
