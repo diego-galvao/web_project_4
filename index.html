@@ -82,24 +82,38 @@
             />
           </button>
           <h2 class="popup__title">Editar Perfil</h2>
-          <form class="popup__form">
-            <input
-              type="text"
-              id="fname"
-              name="fname"
-              class="popup__name"
-              placeholder="Nome"
-            />
-            <input
-              type="text"
-              id="fexplore"
-              name="fexplore"
-              class="popup__explore"
-              placeholder="Sobre mim"
-            />
-            <button type="submit" id="edit-save" class="popup__edit-button">
-              Salvar
-            </button>
+          <form class="form popup__form" novalidate>
+            <fieldset class="form__set">
+              <label class="form__field">
+                <input
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  class="popup__name form__input"
+                  minlength="2"
+                  maxlength="40"
+                  placeholder="Nome"
+                  required
+                />
+                <span class="form__input-error"></span>
+              </label>
+              <label class="form__field">
+                <input
+                  type="text"
+                  id="fexplore"
+                  name="fexplore"
+                  class="popup__explore form__input"
+                  placeholder="Sobre mim"
+                  minlength="2"
+                  maxlength="200"
+                  required
+                />
+                <span class="form__input-error"></span>
+              </label>
+              <button type="submit" id="edit-save" class="popup__edit-button">
+                Salvar
+              </button>
+            </fieldset>
           </form>
         </div>
       </div>
@@ -114,24 +128,36 @@
             />
           </button>
           <h2 class="popup__title">Novo local</h2>
-          <form class="popup__form" id="addpopup_form">
-            <input
-              type="text"
-              id="ftitle"
-              name="ftitle"
-              class="popup__name"
-              placeholder="Titulo"
-            />
-            <input
-              type="text"
-              id="flink"
-              name="flink"
-              class="popup__explore"
-              placeholder="Link de imagem"
-            />
-            <button type="submit" id="add-save" class="popup__edit-button">
-              Criar
-            </button>
+          <form class="form popup__form" id="addpopup_form" novalidate>
+            <fieldset class="form__set">
+              <label class="form__field">
+                <input
+                  type="text"
+                  id="ftitle"
+                  name="ftitle"
+                  class="popup__name form__input"
+                  placeholder="Titulo"
+                  minlength="2"
+                  maxlength="30"
+                  required
+                />
+                <span class="form__input-error"></span>
+              </label>
+              <label class="form__field">
+                <input
+                  type="url"
+                  id="flink"
+                  name="flink"
+                  minlength="11"
+                  class="popup__explore form__input"
+                  placeholder="Link de imagem"
+                />
+                <span class="form__input-error"></span>
+              </label>
+              <button type="submit" id="add-save" class="popup__edit-button">
+                Criar
+              </button>
+            </fieldset>
           </form>
         </div>
       </div>

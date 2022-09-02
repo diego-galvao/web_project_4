@@ -1,5 +1,6 @@
 .popup__name {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
+  line-height: 16.94px;
   width: 100%;
   border: none;
   border-bottom: 1px solid #000000;

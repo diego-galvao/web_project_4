@@ -75,7 +75,6 @@ initialCards.forEach((card) => saveCard(card));
 //----------------------------------------------------------------------------------
 
 const page = document.querySelector(".page");
-
 // Classes do popup de edição  -----------------------------------------------------
 
 const popupCloseButton = document.querySelector(".popup__closebutton");
@@ -90,6 +89,7 @@ function handleShowPopUp() {
   editPopUp.classList.add("popup_opened");
   popupName.value = profileName.textContent;
   popupExplore.value = profileAbout.textContent;
+  enableValidation();
 }
 
 popupCloseButton.addEventListener("click", handleClosePopUp);
@@ -151,3 +151,91 @@ function addCard(evt) {
 }
 
 addElement.addEventListener("submit", addCard);
+
+// Validação dos formulários dos poups ------------------------------------------------------------------
+const showInputError = (inputElement, errorMessage) => {
+  const errorElement =
+    inputElement.parentElement.querySelector(".form__input-error");
+  inputElement.classList.add("form__input_type_error");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("form__input-error_active");
+};
+
+const hideInputError = (inputElement) => {
+  const errorElement =
+    inputElement.parentElement.querySelector(".form__input-error");
+  inputElement.classList.remove("form__input_type_error");
+  errorElement.classList.remove("form__input-error_active");
+  errorElement.textContent = "";
+};
+
+const checkInputValidity = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(inputElement);
+  }
+};
+
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add("popup__edit-button_inactive");
+  } else {
+    buttonElement.classList.remove("popup__edit-button_inactive");
+  }
+};
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const buttonElement = formElement.querySelector(".popup__edit-button");
+  toggleButtonState(inputList, buttonElement);
+
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      checkInputValidity(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
+    });
+  });
+};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".form"));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+    });
+
+    const fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
+
+    fieldsetList.forEach((fieldset) => {
+      setEventListeners(fieldset);
+    });
+  });
+};
+
+enableValidation();
+
+//--------------------------------------------------------------------------------
+
+const popupParent = Array.from(document.querySelectorAll(".popup"));
+console.log(popupParent);
+popupParent.forEach((modal) => {
+  modal.addEventListener("click", popupCloseOverlayClick);
+});
+
+function popupCloseOverlayClick(evt) {
+  const popupClicked = evt.target.classList.contains("popup");
+  const elementClicked = evt.currentTarget !== evt.target;
+  if (elementClicked && !popupClicked) {
+    return;
+  }
+  handleClosePopUp();
+  handleCloseImagePopUp();
+  handleCloseAddPopUp();
+}
