@@ -231,8 +231,7 @@ popupParent.forEach((modal) => {
 
 function popupCloseOverlayClick(evt) {
   const popupClicked = evt.target.classList.contains("popup");
-  const elementClicked = evt.currentTarget !== evt.target;
-  if (elementClicked && !popupClicked) {
+  if (!popupClicked) {
     return;
   }
   handleClosePopUp();
