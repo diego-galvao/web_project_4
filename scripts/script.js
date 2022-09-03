@@ -169,7 +169,7 @@ const hideInputError = (inputElement) => {
   errorElement.textContent = "";
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(inputElement, inputElement.validationMessage);
   } else {
@@ -198,7 +198,7 @@ const setEventListeners = (formElement) => {
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      checkInputValidity(formElement, inputElement);
+      checkInputValidity(inputElement);
       toggleButtonState(inputList, buttonElement);
     });
   });
@@ -224,7 +224,7 @@ enableValidation();
 //--------------------------------------------------------------------------------
 
 const popupParent = Array.from(document.querySelectorAll(".popup"));
-console.log(popupParent);
+
 popupParent.forEach((modal) => {
   modal.addEventListener("click", popupCloseOverlayClick);
 });
