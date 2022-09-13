@@ -1,3 +1,5 @@
+import { resetForm, resetFormHideError } from "./modules/validate.js";
+
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -67,6 +69,19 @@ function handleCloseImagePopUp() {
   modalImagePopUp.classList.remove("popup__img-opened");
 }
 
+function keydownCloseImagePopUp() {
+  document.addEventListener("keydown", function (evt) {
+    if (
+      evt.key === "Escape" &&
+      modalImagePopUp.classList.contains("popup__img-opened")
+    ) {
+      modalImagePopUp.classList.remove("popup__img-opened");
+    }
+  });
+}
+
+keydownCloseImagePopUp();
+
 const popupImageCloseButton = document.querySelector("#imagepopup_closebutton");
 popupImageCloseButton.addEventListener("click", handleCloseImagePopUp);
 
@@ -93,10 +108,24 @@ function handleShowPopUp() {
 }
 
 popupCloseButton.addEventListener("click", handleClosePopUp);
+popupCloseButton.addEventListener("click", resetForm);
+popupCloseButton.addEventListener("click", resetFormHideError);
 
 function handleClosePopUp() {
   editPopUp.classList.remove("popup_opened");
 }
+
+function keydownClosePopUp() {
+  document.addEventListener("keydown", function (evt) {
+    if (evt.key === "Escape" && editPopUp.classList.contains("popup_opened")) {
+      handleClosePopUp();
+      resetForm();
+      resetFormHideError();
+    }
+  });
+}
+
+keydownClosePopUp();
 
 // Salvar dados popup de edição   ---------------------------------------------------
 
@@ -129,10 +158,24 @@ function handleShowAddPopUp() {
 }
 
 popupAddCloseButton.addEventListener("click", handleCloseAddPopUp);
+popupAddCloseButton.addEventListener("click", resetForm);
+popupAddCloseButton.addEventListener("click", resetFormHideError);
 
 function handleCloseAddPopUp() {
   addPopUp.classList.remove("popup_opened");
 }
+
+function keydownCloseAddPopUp() {
+  document.addEventListener("keydown", function (evt) {
+    if (evt.key === "Escape" && addPopUp.classList.contains("popup_opened")) {
+      handleCloseAddPopUp();
+      resetForm();
+      resetFormHideError();
+    }
+  });
+}
+
+keydownCloseAddPopUp();
 
 //Adicionar card --------------------------------------------------------
 
@@ -152,76 +195,7 @@ function addCard(evt) {
 
 addElement.addEventListener("submit", addCard);
 
-// Validação dos formulários dos poups ------------------------------------------------------------------
-const showInputError = (inputElement, errorMessage) => {
-  const errorElement =
-    inputElement.parentElement.querySelector(".form__input-error");
-  inputElement.classList.add("form__input_type_error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("form__input-error_active");
-};
-
-const hideInputError = (inputElement) => {
-  const errorElement =
-    inputElement.parentElement.querySelector(".form__input-error");
-  inputElement.classList.remove("form__input_type_error");
-  errorElement.classList.remove("form__input-error_active");
-  errorElement.textContent = "";
-};
-
-const checkInputValidity = (inputElement) => {
-  if (!inputElement.validity.valid) {
-    showInputError(inputElement, inputElement.validationMessage);
-  } else {
-    hideInputError(inputElement);
-  }
-};
-
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-};
-
-const toggleButtonState = (inputList, buttonElement) => {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add("popup__edit-button_inactive");
-  } else {
-    buttonElement.classList.remove("popup__edit-button_inactive");
-  }
-};
-
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-  const buttonElement = formElement.querySelector(".popup__edit-button");
-  toggleButtonState(inputList, buttonElement);
-
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
-      checkInputValidity(inputElement);
-      toggleButtonState(inputList, buttonElement);
-    });
-  });
-};
-
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".form"));
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", function (evt) {
-      evt.preventDefault();
-    });
-
-    const fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
-
-    fieldsetList.forEach((fieldset) => {
-      setEventListeners(fieldset);
-    });
-  });
-};
-
-enableValidation();
-
-//--------------------------------------------------------------------------------
+// Fechar imagem clicando no overlay -----------------------------------------------------------------
 
 const popupParent = Array.from(document.querySelectorAll(".popup"));
 
@@ -237,4 +211,6 @@ function popupCloseOverlayClick(evt) {
   handleClosePopUp();
   handleCloseImagePopUp();
   handleCloseAddPopUp();
+  resetForm();
+  resetFormHideError();
 }
